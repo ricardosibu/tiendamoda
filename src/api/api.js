@@ -7,9 +7,7 @@ function getAllCategories() {
 }
 
 function getAllSections() {
-  return fetch(`${URL}categories/sections`)
-    .then(res => res.json())
-    .then(res => res.sections);
+  return fetch(`${URL}categories/sections`).then(res => res.json());
 }
 
 export default {
