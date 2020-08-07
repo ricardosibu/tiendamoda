@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex justify-start ml-64 w-full">
-      <h3 class="text-gray-700 text-lg">PRODUCTOS</h3>
+      <h3 class="text-pink-600 text-xl font-semibold ml-12 mb-12">PRODUCTOS</h3>
     </div>
     <div class="flex flex-wrap w-3/4 justify-center mt-8 ml-12">
       <div
@@ -18,6 +18,14 @@
           />
           <button
             class="bg-pink-600 w-32 m-2 px-2 py-2 rounded-full text-white text-base mr-16"
+            @click="
+              setCartItem(
+                product.id,
+                product.name,
+                product.price,
+                product.images[0].url
+              )
+            "
           >
             <box-icon class="" name="cart" color="white"></box-icon> AGREGAR
           </button>
@@ -33,8 +41,20 @@
 export default {
   props: ["products"],
   data() {
-    return {};
+    return {
+      productCart: []
+    };
   },
-  created() {}
+  methods: {
+    setCartItem(id, name, price, image) {
+      this.productCart.push({
+        id,
+        name,
+        price,
+        image
+      });
+      this.$store.dispatch("setProductCart", { selected: this.productCart });
+    }
+  }
 };
 </script>

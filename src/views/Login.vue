@@ -1,9 +1,9 @@
 <template>
   <div
-    class="h-screen max-w-screen bg-no-repeat bg-fixed"
+    class="h-screen max-w-screen m-0 p-0 overflow-hidden shadow bg-cover bg-no-repeat bg-fixed"
     style="background-image: url(https://mitienda.moda/img/login-desktop.0a0cacb5.jpg)"
   >
-    <div class="flex items-center flex-col w-full">
+    <div class="flex items-center flex-col w-full mt-16">
       <div class="w-56 h-32 px-2 py-4 mt-32">
         <img src="https://mitienda.moda/img/logo.c752bf8f.png" alt="" />
       </div>
@@ -15,7 +15,7 @@
         >
         <input
           type="text"
-          class="w-full h-12 mt-12 px-2 py-4 bg-transparent border-solid border-2 rounded border-white text-4xl text-white font-semibold"
+          class="w-full h-12 mt-12 px-2 py-4 bg-transparent border-solid border-2 rounded border-white text-2xl text-white font-semibold"
           placeholder="Telefono"
           v-model="phoneNumber"
           @keyup.enter="login()"
