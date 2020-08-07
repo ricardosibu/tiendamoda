@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <div class="flex content-center flex-wrap">
+    <div>
       <CatalogProducts :products="products" />
       <FooterBar />
     </div>
