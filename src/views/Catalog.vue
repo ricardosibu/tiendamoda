@@ -2,7 +2,7 @@
   <div>
     <NavBar />
     <div class="flex content-center flex-wrap">
-      <CategoriesProducts :sections="sections" />
+      <CatalogProducts :products="products" />
       <FooterBar />
     </div>
   </div>
@@ -10,28 +10,29 @@
 <script>
 import NavBar from "@/components/navbar.vue";
 import FooterBar from "@/components/footerbar.vue";
-import CategoriesProducts from "@/components/categoriesproducts.vue";
+import CatalogProducts from "@/components/catalogproducts.vue";
 import api from "@/api/api";
 export default {
   name: "Categories",
   components: {
     NavBar,
     FooterBar,
-    CategoriesProducts
+    CatalogProducts
   },
   data() {
     return {
-      categories: [],
-      sections: []
+      products: [],
+      catalogId: ""
     };
   },
   created() {
-    this.getSections();
+    this.getProducts();
   },
   methods: {
-    async getSections() {
-      this.sections = await api.getAllSections();
-      console.log(this.sections);
+    async getProducts() {
+      const id = this.$route.params.id;
+      this.products = await api.getCategoriesIdProducts(id);
+      console.log(this.products);
     }
   }
 };
